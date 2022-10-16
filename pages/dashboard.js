@@ -14,6 +14,7 @@ import {
 import Message from "../components/message";
 import { BsTrash2Fill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
+import Link from "next/link";
 
 export default function Dashboard() {
   const [posts, setPosts] = useState([]);
@@ -57,11 +58,12 @@ export default function Dashboard() {
                 <BsTrash2Fill className="text-2xl" />
                 Delete
               </button>
-
-              <button className="text-teal-600 flex items-center justify-center gap-2 py-3 text-sm">
-                <AiFillEdit className="text-2xl" />
-                Edit
-              </button>
+              <Link href={{ pathname: "/post", query: post }}>
+                <button className="text-teal-600 flex items-center justify-center gap-2 py-3 text-sm">
+                  <AiFillEdit className="text-2xl" />
+                  Edit
+                </button>
+              </Link>
             </div>
           </Message>
         ))}
