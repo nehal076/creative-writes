@@ -13,7 +13,7 @@ export default function Home() {
     const q = query(collectionRef, orderBy("timestamp", "desc"));
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
-      setAllPosts(snapshot.docs.map((doc) => ({ ...doc.data() })));
+      setAllPosts(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     });
     return unsubscribe;
   };
@@ -32,9 +32,9 @@ export default function Home() {
 
       <div className="my-12 text-lg font-medium">
         <h2>See what other people are saying</h2>
-        <Message />
-        <Message />
-        <Message />
+        {allPosts.map((post) => (
+          <Message {...post}></Message>
+        ))}
       </div>
     </div>
   );

@@ -46,7 +46,7 @@ export default function Post() {
   };
 
   return (
-    <div className="my-20 p-12 shadow-lg rounded-lg max-w-md mx-auto-center">
+    <div className="my-20 p-12 shadow-lg rounded-lg max-w-md mx-auto-center md:justify-center">
       <form onSubmit={submitPost}>
         <h1 className="text-2xl font-bold">Create a new post</h1>
         <div className="py-2">
